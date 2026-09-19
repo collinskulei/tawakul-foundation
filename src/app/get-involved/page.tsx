@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MessageCircle, Users2 } from "lucide-react";
+import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
@@ -36,50 +37,57 @@ export default function GetInvolvedPage() {
           />
 
           <div className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-2">
-            <div className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center shadow-sm">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
-                <MessageCircle size={26} />
+            <AnimatedSection>
+              <div className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center shadow-sm">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
+                  <MessageCircle size={26} />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-green-950">
+                  Make a Donation
+                </h3>
+                <p className="mt-3 text-stone-600">
+                  Message us on WhatsApp and our team will share the current
+                  donation options and confirm your contribution.
+                </p>
+                <a
+                  href={donateWhatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary mt-6 w-full rounded-full px-6 py-3 text-sm font-bold text-green-950 shadow-sm transition-transform hover:scale-[1.02]"
+                >
+                  Donate via WhatsApp
+                </a>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-green-950">
-                Make a Donation
-              </h3>
-              <p className="mt-3 text-stone-600">
-                Message us on WhatsApp and our team will share the current
-                donation options and confirm your contribution.
-              </p>
-              <a
-                href={donateWhatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary mt-6 w-full rounded-full px-6 py-3 text-sm font-bold text-white shadow-sm transition-transform hover:scale-[1.02]"
-              >
-                Donate via WhatsApp
-              </a>
-            </div>
+            </AnimatedSection>
 
-            <div className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center shadow-sm">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
-                <Users2 size={26} />
+            <AnimatedSection delay={0.1}>
+              <div className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center shadow-sm">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
+                  <Users2 size={26} />
+                </div>
+                <h3 className="mt-5 text-xl font-bold text-green-950">
+                  Volunteer With Us
+                </h3>
+                <p className="mt-3 text-stone-600">
+                  Join our growing team of volunteers helping organize
+                  fundraising and charitable activities in Busia and beyond.
+                </p>
+                <a
+                  href={volunteerWhatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 w-full rounded-full border border-green-700 px-6 py-3 text-sm font-bold text-green-800 transition-colors hover:bg-green-50"
+                >
+                  Volunteer via WhatsApp
+                </a>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-green-950">
-                Volunteer With Us
-              </h3>
-              <p className="mt-3 text-stone-600">
-                Join our growing team of volunteers helping organize
-                fundraising and charitable activities in Busia and beyond.
-              </p>
-              <a
-                href={volunteerWhatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 w-full rounded-full border border-green-700 px-6 py-3 text-sm font-bold text-green-800 transition-colors hover:bg-green-50"
-              >
-                Volunteer via WhatsApp
-              </a>
-            </div>
+            </AnimatedSection>
           </div>
 
-          <div className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-green-200 bg-green-50 p-6 text-center">
+          <AnimatedSection
+            delay={0.2}
+            className="mx-auto mt-10 max-w-4xl rounded-2xl border border-dashed border-green-200 bg-green-50 p-6 text-center"
+          >
             <p className="text-sm text-stone-600">
               Prefer email? Reach out at{" "}
               <a
@@ -91,7 +99,7 @@ export default function GetInvolvedPage() {
               . Online M-Pesa donations and a live fundraising goal tracker
               are coming soon.
             </p>
-          </div>
+          </AnimatedSection>
         </Container>
       </section>
     </>

@@ -7,7 +7,9 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
+import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
+import { GlowOrbs } from "@/components/glow-orbs";
 import { SectionHeading } from "@/components/section-heading";
 import { site } from "@/lib/site";
 
@@ -64,19 +66,17 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-green-950">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-green-800/40 blur-3xl" />
-          <div className="absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-gold-500/20 blur-3xl" />
-        </div>
+        <GlowOrbs variant="dark" />
 
         <Container className="relative flex flex-col items-center gap-10 py-20 text-center sm:py-28">
-          <p
-            lang="ar"
-            dir="rtl"
-            className="text-gold-shine font-arabic text-7xl leading-none sm:text-8xl"
-          >
-            توكل
-          </p>
+          <Image
+            src="/images/tawakul-calligraphy.png"
+            alt="Tawakul, written in Arabic calligraphy"
+            width={475}
+            height={511}
+            className="h-36 w-auto drop-shadow-[0_0_24px_rgba(217,164,65,0.35)] sm:h-44"
+            priority
+          />
           <div>
             <h1 className="text-4xl font-bold text-white sm:text-6xl">
               Where Faith Meets Compassion
@@ -90,7 +90,7 @@ export default function Home() {
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
               href="/get-involved"
-              className="btn-primary rounded-full px-8 py-3.5 text-base font-bold text-white shadow-lg transition-transform hover:scale-[1.03]"
+              className="btn-primary rounded-full px-8 py-3.5 text-base font-bold text-green-950 shadow-lg transition-transform hover:scale-[1.03]"
             >
               Support Our Mission
             </Link>
@@ -113,21 +113,20 @@ export default function Home() {
           />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-green-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-800">
-                  <Icon size={24} />
+            {pillars.map(({ icon: Icon, title, description }, index) => (
+              <AnimatedSection key={title} delay={index * 0.05}>
+                <div className="rounded-2xl border border-green-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-800">
+                    <Icon size={24} />
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold text-green-950">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                    {description}
+                  </p>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-green-950">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                  {description}
-                </p>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </Container>
@@ -141,7 +140,7 @@ export default function Home() {
             center
           />
 
-          <div className="mx-auto mt-14 max-w-3xl">
+          <AnimatedSection className="mx-auto mt-14 max-w-3xl">
             <ol className="relative space-y-10 border-l-2 border-green-200 pl-8">
               {timeline.map((item) => (
                 <li key={item.date} className="relative">
@@ -164,13 +163,13 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-          </div>
+          </AnimatedSection>
         </Container>
       </section>
 
       <section className="py-20 sm:py-28">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
-          <div>
+          <AnimatedSection>
             <span className="inline-block text-sm font-semibold tracking-wide text-green-700 uppercase">
               Powered by Volunteers
             </span>
@@ -178,20 +177,22 @@ export default function Home() {
               A growing community of compassion
             </h2>
             <p className="mt-5 text-lg text-stone-600">
-              Tawakul Foundation is powered by a growing team of volunteers
-              and supporters from Kenya and beyond. Through social media and
-              other platforms, individuals from different backgrounds come
-              together to participate in fundraising, organize charitable
-              activities, and contribute their time, resources, and skills
-              toward our mission.
+              Tawakul Foundation is powered by a growing team of volunteers and
+              supporters from Kenya and beyond. Through social media and other
+              platforms, individuals from different backgrounds come together to
+              participate in fundraising, organize charitable activities, and
+              contribute their time, resources, and skills toward our mission.
             </p>
             <p className="mt-4 text-lg text-stone-600">
               Our vision is simple: to create a community where compassion
               becomes action and where those who are most vulnerable are not
               forgotten.
             </p>
-          </div>
-          <div className="relative overflow-hidden rounded-3xl border border-green-100 p-10 text-center text-white">
+          </AnimatedSection>
+          <AnimatedSection
+            delay={0.1}
+            className="relative overflow-hidden rounded-3xl border border-green-100 p-10 text-center text-white"
+          >
             <Image
               src="/images/ikhlas/grounds-02.jpg"
               alt="Ikhlas Education Center grounds during our March 2026 visit"
@@ -206,23 +207,24 @@ export default function Home() {
                 Help us reach Ikhlas Education Center again
               </h3>
               <p className="mt-3 text-green-100">
-                We are fundraising for our next orphanage visit, scheduled
-                for November 2026. Every contribution brings us closer to
-                reaching more vulnerable communities.
+                We are fundraising for our next orphanage visit, scheduled for
+                November 2026. Every contribution brings us closer to reaching
+                more vulnerable communities.
               </p>
               <Link
                 href="/get-involved"
-                className="btn-primary mt-6 inline-block rounded-full px-8 py-3.5 text-base font-bold text-white shadow-lg transition-transform hover:scale-[1.03]"
+                className="btn-primary mt-6 inline-block rounded-full px-8 py-3.5 text-base font-bold text-green-950 shadow-lg transition-transform hover:scale-[1.03]"
               >
                 Get Involved
               </Link>
             </div>
-          </div>
+          </AnimatedSection>
         </Container>
       </section>
 
-      <section className="border-t border-green-100 bg-green-950 py-16">
-        <Container className="flex flex-col items-center gap-6 text-center text-white sm:flex-row sm:justify-between sm:text-left">
+      <section className="relative overflow-hidden border-t border-green-100 bg-green-950 py-16">
+        <GlowOrbs variant="dark" />
+        <Container className="relative flex flex-col items-center gap-6 text-center text-white sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="text-2xl font-bold">
               Have questions about {site.name}?

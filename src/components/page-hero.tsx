@@ -1,4 +1,5 @@
 import { Container } from "./container";
+import { GlowOrbs } from "./glow-orbs";
 
 export function PageHero({
   eyebrow,
@@ -10,8 +11,9 @@ export function PageHero({
   description?: string;
 }) {
   return (
-    <section className="bg-green-950">
-      <Container className="py-16 text-center sm:py-20">
+    <section className="relative overflow-hidden bg-green-950">
+      <GlowOrbs variant="dark" />
+      <Container className="relative py-16 text-center sm:py-20">
         {eyebrow ? (
           <span className="inline-block text-sm font-semibold tracking-wide text-gold-400 uppercase">
             {eyebrow}

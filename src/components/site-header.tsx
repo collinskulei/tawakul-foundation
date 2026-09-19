@@ -47,7 +47,7 @@ export function SiteHeader() {
           })}
           <Link
             href="/get-involved"
-            className="btn-primary rounded-full px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-transform hover:scale-[1.03]"
+            className="btn-primary rounded-full px-5 py-2.5 text-sm font-bold text-green-950 shadow-sm transition-transform hover:scale-[1.03]"
           >
             Donate
           </Link>
@@ -90,7 +90,7 @@ export function SiteHeader() {
             <Link
               href="/get-involved"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 rounded-full px-5 py-2.5 text-center text-sm font-bold text-white"
+              className="btn-primary mt-2 rounded-full px-5 py-2.5 text-center text-sm font-bold text-green-950"
             >
               Donate
             </Link>
