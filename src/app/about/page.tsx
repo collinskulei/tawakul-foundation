@@ -2,7 +2,37 @@ import type { Metadata } from "next";
 import { Compass, HeartHandshake, Sparkles } from "lucide-react";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
+import { PhotoGallery } from "@/components/photo-gallery";
 import { SectionHeading } from "@/components/section-heading";
+
+const ikhlasVisitPhotos = [
+  {
+    src: "/images/ikhlas/grounds-02.jpg",
+    alt: "Ikhlas Education Center grounds with children playing",
+    wide: true,
+  },
+  {
+    src: "/images/ikhlas/team-01.jpg",
+    alt: "Tawakul Foundation volunteer with children at Ikhlas Education Center",
+  },
+  {
+    src: "/images/ikhlas/children-01.jpg",
+    alt: "Children at Ikhlas Education Center greeting the Tawakul Foundation team",
+  },
+  {
+    src: "/images/ikhlas/cooking-01.jpg",
+    alt: "Tawakul Foundation volunteers preparing a meal for the children",
+  },
+  {
+    src: "/images/ikhlas/cooking-02.jpg",
+    alt: "Volunteers stirring a large pot of food for the orphanage visit",
+  },
+  {
+    src: "/images/ikhlas/grounds-01.jpg",
+    alt: "Ikhlas Education Center school buildings",
+    wide: true,
+  },
+];
 
 export const metadata: Metadata = {
   title: "About Us | Tawakul Foundation",
@@ -57,6 +87,20 @@ export default function AboutPage() {
             activities, and contribute their time, resources, and skills
             toward our mission.
           </p>
+        </Container>
+      </section>
+
+      <section className="pb-20 sm:pb-28">
+        <Container>
+          <SectionHeading
+            eyebrow="March 2026"
+            title="Our First Orphanage Visit"
+            description="A look back at our team's visit to Ikhlas Education Center, where we cooked, played, and spent the day with the children."
+            center
+          />
+          <div className="mt-14">
+            <PhotoGallery photos={ikhlasVisitPhotos} />
+          </div>
         </Container>
       </section>
 

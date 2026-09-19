@@ -195,22 +195,32 @@ export default function Home() {
               forgotten.
             </p>
           </div>
-          <div className="rounded-3xl border border-green-100 bg-green-950 p-10 text-center text-white">
-            <Landmark className="mx-auto text-gold-400" size={40} />
-            <h3 className="mt-5 text-2xl font-bold">
-              Help us reach Ikhlas Education Center again
-            </h3>
-            <p className="mt-3 text-green-100">
-              We are fundraising for our next orphanage visit, scheduled for
-              November 2026. Every contribution brings us closer to reaching
-              more vulnerable communities.
-            </p>
-            <Link
-              href="/get-involved"
-              className="btn-primary mt-6 inline-block rounded-full px-8 py-3.5 text-base font-bold text-white shadow-lg transition-transform hover:scale-[1.03]"
-            >
-              Get Involved
-            </Link>
+          <div className="relative overflow-hidden rounded-3xl border border-green-100 p-10 text-center text-white">
+            <Image
+              src="/images/ikhlas/grounds-02.jpg"
+              alt="Ikhlas Education Center grounds during our March 2026 visit"
+              fill
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-green-950/80" />
+            <div className="relative">
+              <Landmark className="mx-auto text-gold-400" size={40} />
+              <h3 className="mt-5 text-2xl font-bold">
+                Help us reach Ikhlas Education Center again
+              </h3>
+              <p className="mt-3 text-green-100">
+                We are fundraising for our next orphanage visit, scheduled
+                for November 2026. Every contribution brings us closer to
+                reaching more vulnerable communities.
+              </p>
+              <Link
+                href="/get-involved"
+                className="btn-primary mt-6 inline-block rounded-full px-8 py-3.5 text-base font-bold text-white shadow-lg transition-transform hover:scale-[1.03]"
+              >
+                Get Involved
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
