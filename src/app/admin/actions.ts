@@ -5,6 +5,11 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { requireUser } from "@/lib/supabase/require-user";
 import { slugify } from "@/lib/site";
+import {
+  MAX_PROJECT_IMAGE_BYTES,
+  deleteProjectImage,
+  uploadProjectImage,
+} from "@/lib/supabase/storage";
 
 export type ActionState = { error?: string } | undefined;
 
@@ -37,14 +42,12 @@ export async function logout() {
 function readProjectForm(formData: FormData) {
   const title = String(formData.get("title") ?? "").trim();
   const description = String(formData.get("description") ?? "").trim();
-  const coverImageUrl = String(formData.get("cover_image_url") ?? "").trim();
   const goalAmount = Number(formData.get("goal_amount") ?? 0);
   const isActive = formData.get("is_active") === "on";
 
   return {
     title,
     description: description || null,
-    cover_image_url: coverImageUrl || null,
     goal_amount: Number.isFinite(goalAmount) ? goalAmount : 0,
     is_active: isActive,
   };
@@ -62,8 +65,28 @@ export async function createProject(
     return { error: "Title is required." };
   }
 
+  const imageFile = formData.get("cover_image");
+  let coverImageUrl: string | null = null;
+
+  if (imageFile instanceof File && imageFile.size > 0) {
+    if (imageFile.size > MAX_PROJECT_IMAGE_BYTES) {
+      return { error: "Image must be 5 MB or smaller." };
+    }
+    try {
+      coverImageUrl = await uploadProjectImage(imageFile);
+    } catch (uploadError) {
+      return {
+        error:
+          uploadError instanceof Error
+            ? uploadError.message
+            : "Image upload failed.",
+      };
+    }
+  }
+
   const { error } = await supabase.from("projects").insert({
     ...fields,
+    cover_image_url: coverImageUrl,
     slug: `${slugify(fields.title)}-${Date.now().toString(36)}`,
   });
 
@@ -89,9 +112,40 @@ export async function updateProject(
     return { error: "Title is required." };
   }
 
+  const existingImageUrl =
+    String(formData.get("existing_cover_image_url") ?? "") || null;
+  const removeImage = formData.get("remove_cover_image") === "on";
+  const imageFile = formData.get("cover_image");
+
+  let coverImageUrl = existingImageUrl;
+
+  if (imageFile instanceof File && imageFile.size > 0) {
+    if (imageFile.size > MAX_PROJECT_IMAGE_BYTES) {
+      return { error: "Image must be 5 MB or smaller." };
+    }
+    try {
+      coverImageUrl = await uploadProjectImage(imageFile);
+    } catch (uploadError) {
+      return {
+        error:
+          uploadError instanceof Error
+            ? uploadError.message
+            : "Image upload failed.",
+      };
+    }
+    if (existingImageUrl) {
+      await deleteProjectImage(existingImageUrl).catch(() => {});
+    }
+  } else if (removeImage) {
+    if (existingImageUrl) {
+      await deleteProjectImage(existingImageUrl).catch(() => {});
+    }
+    coverImageUrl = null;
+  }
+
   const { error } = await supabase
     .from("projects")
-    .update(fields)
+    .update({ ...fields, cover_image_url: coverImageUrl })
     .eq("id", id);
 
   if (error) {

@@ -1,5 +1,14 @@
 -- Run this once in the Supabase SQL Editor (Project -> SQL Editor -> New query).
 -- Safe to re-run: guarded with "if not exists" / "or replace" where possible.
+--
+-- Project cover images are stored in a Storage bucket named
+-- "project-images" (public, 5 MB file size limit, image/* only). It's
+-- created via the Storage API, not SQL. Already created for this
+-- project's Supabase instance; if you ever recreate the project, redo it
+-- with: POST {SUPABASE_URL}/storage/v1/bucket with the service role key,
+-- body: {"id":"project-images","name":"project-images","public":true,
+-- "file_size_limit":5242880,"allowed_mime_types":["image/png","image/jpeg",
+-- "image/webp","image/gif"]}
 
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),

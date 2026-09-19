@@ -66,7 +66,16 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-green-950">
-        <GlowOrbs variant="dark" />
+        <Image
+          src="/hero-moon.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-green-950/70 via-green-950/60 to-green-950/85" />
 
         <Container className="relative flex flex-col items-center gap-10 py-20 text-center sm:py-28">
           <Image
