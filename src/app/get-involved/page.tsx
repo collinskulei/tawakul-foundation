@@ -14,9 +14,6 @@ export const metadata: Metadata = {
     "Support Tawakul Foundation's mission through donations, volunteering, or partnership as we fundraise for our November 2026 orphanage visit.",
 };
 
-const donateWhatsapp = whatsappLink(
-  "Assalamu alaikum, I would like to make a donation to Tawakul Foundation. Please share the details."
-);
 const volunteerWhatsapp = whatsappLink(
   "Assalamu alaikum, I would like to volunteer with Tawakul Foundation. Please share more information."
 );
@@ -56,18 +53,6 @@ export default function GetInvolvedPage() {
                 <div className="mt-6">
                   <MpesaDonateForm />
                 </div>
-                <p className="mt-4 text-center text-xs text-stone-500">
-                  Prefer WhatsApp?{" "}
-                  <a
-                    href={donateWhatsapp}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-semibold text-green-700 underline underline-offset-2"
-                  >
-                    Message us instead
-                  </a>
-                  .
-                </p>
               </div>
             </AnimatedSection>
 
