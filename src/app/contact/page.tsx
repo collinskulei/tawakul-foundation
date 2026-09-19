@@ -47,7 +47,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact Us"
         title="We'd Love to Hear From You"
-        description="Whether you have a question, want to donate, or wish to volunteer — reach out any time."
+        description="Whether you have a question, want to donate, or wish to volunteer, reach out any time."
       />
 
       <section className="py-20 sm:py-28">

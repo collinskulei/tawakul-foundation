@@ -232,7 +232,7 @@ export default function Home() {
               Have questions about {site.name}?
             </h2>
             <p className="mt-2 text-green-200">
-              Reach out — we would love to hear from you.
+              Reach out, we would love to hear from you.
             </p>
           </div>
           <Link

@@ -140,9 +140,9 @@ export default function AboutPage() {
                 Values
               </h3>
               <p className="mt-3 text-stone-600">
-                Faith, compassion, and trust — serving as a transparent
-                bridge between generous donors and the communities who need
-                their support most.
+                Faith, compassion, and trust guide everything we do as we
+                serve as a transparent bridge between generous donors and
+                the communities who need their support most.
               </p>
             </div>
           </div>
