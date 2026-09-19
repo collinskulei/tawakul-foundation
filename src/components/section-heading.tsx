@@ -12,7 +12,7 @@ export function SectionHeading({
   return (
     <div className={center ? "text-center" : ""}>
       {eyebrow ? (
-        <span className="inline-block rounded-full bg-green-100 px-4 py-1 text-sm font-semibold tracking-wide text-green-800 uppercase">
+        <span className="inline-block text-sm font-semibold tracking-wide text-green-700 uppercase">
           {eyebrow}
         </span>
       ) : null}

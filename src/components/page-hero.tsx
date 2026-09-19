@@ -13,7 +13,7 @@ export function PageHero({
     <section className="bg-green-950">
       <Container className="py-16 text-center sm:py-20">
         {eyebrow ? (
-          <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-sm font-semibold tracking-wide text-gold-400 uppercase">
+          <span className="inline-block text-sm font-semibold tracking-wide text-gold-400 uppercase">
             {eyebrow}
           </span>
         ) : null}

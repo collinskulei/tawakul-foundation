@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Aref_Ruqaa, Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -20,6 +20,12 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const arefRuqaa = Aref_Ruqaa({
+  variable: "--font-arabic",
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
   title: `${site.name} | ${site.tagline}`,
   description:
@@ -33,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${arefRuqaa.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <SiteHeader />

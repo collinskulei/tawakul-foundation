@@ -35,6 +35,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-heading);
+  --font-arabic: var(--font-arabic);
 }
 
 body {
@@ -55,4 +56,16 @@ h4 {
 
 .btn-primary:hover {
   background-image: linear-gradient(135deg, var(--gold-400), var(--gold-500));
+}
+
+.text-gold-shine {
+  background-image: linear-gradient(
+    135deg,
+    var(--gold-400),
+    var(--gold-600) 50%,
+    var(--gold-400)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

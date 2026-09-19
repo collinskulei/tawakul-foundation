@@ -70,19 +70,15 @@ export default function Home() {
         </div>
 
         <Container className="relative flex flex-col items-center gap-10 py-20 text-center sm:py-28">
-          <Image
-            src="/logo.png"
-            alt="Tawakul Foundation logo"
-            width={140}
-            height={160}
-            className="h-32 w-auto object-contain sm:h-40"
-            priority
-          />
+          <p
+            lang="ar"
+            dir="rtl"
+            className="text-gold-shine font-arabic text-7xl leading-none sm:text-8xl"
+          >
+            توكل
+          </p>
           <div>
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-sm font-semibold tracking-wide text-gold-400 uppercase">
-              Busia, Western Kenya
-            </span>
-            <h1 className="mt-5 text-4xl font-bold text-white sm:text-6xl">
+            <h1 className="text-4xl font-bold text-white sm:text-6xl">
               Where Faith Meets Compassion
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-green-100 sm:text-xl">
@@ -175,7 +171,7 @@ export default function Home() {
       <section className="py-20 sm:py-28">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <span className="inline-block rounded-full bg-green-100 px-4 py-1 text-sm font-semibold tracking-wide text-green-800 uppercase">
+            <span className="inline-block text-sm font-semibold tracking-wide text-green-700 uppercase">
               Powered by Volunteers
             </span>
             <h2 className="mt-4 text-3xl font-bold text-green-950 sm:text-4xl">
