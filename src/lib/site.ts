@@ -13,6 +13,15 @@ export const whatsappLink = (message: string) =>
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
   { href: "/get-involved", label: "Get Involved" },
   { href: "/contact", label: "Contact" },
 ];
+
+export function slugify(input: string): string {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+}

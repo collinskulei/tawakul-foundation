@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Mail, Smartphone, Users2 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
@@ -106,7 +107,14 @@ export default function GetInvolvedPage() {
               >
                 <Mail size={16} /> {site.email}
               </a>
-              . A live fundraising goal tracker per project is coming soon.
+              . Want to donate toward a specific initiative? See our{" "}
+              <Link
+                href="/projects"
+                className="font-semibold text-green-800 underline underline-offset-2"
+              >
+                current projects
+              </Link>{" "}
+              and their fundraising goals.
             </p>
           </AnimatedSection>
         </Container>

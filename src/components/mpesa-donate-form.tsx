@@ -8,7 +8,7 @@ type Phase = "idle" | "submitting" | "polling" | "success" | "failed";
 const POLL_INTERVAL_MS = 4000;
 const POLL_TIMEOUT_MS = 90000;
 
-export function MpesaDonateForm() {
+export function MpesaDonateForm({ projectId }: { projectId?: string }) {
   const [amount, setAmount] = useState("500");
   const [phone, setPhone] = useState("");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -64,7 +64,7 @@ export function MpesaDonateForm() {
       const res = await fetch("/api/mpesa/stkpush", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, amount: Number(amount) }),
+        body: JSON.stringify({ phone, amount: Number(amount), projectId }),
       });
       const data = await res.json();
 
@@ -96,7 +96,7 @@ export function MpesaDonateForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="rounded-full bg-amber-50 px-4 py-1.5 text-center text-xs font-semibold tracking-wide text-amber-700 uppercase">
-        Sandbox mode — no real money is charged yet
+        Sandbox mode, no real money is charged yet
       </div>
 
       <div>
