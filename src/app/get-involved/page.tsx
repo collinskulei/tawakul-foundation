@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Mail, MessageCircle, Users2 } from "lucide-react";
+import { Mail, Smartphone, Users2 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
+import { MpesaDonateForm } from "@/components/mpesa-donate-form";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { site, whatsappLink } from "@/lib/site";
@@ -36,27 +37,36 @@ export default function GetInvolvedPage() {
             center
           />
 
-          <div className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-2">
+          <div className="mx-auto mt-14 grid max-w-4xl items-start gap-6 sm:grid-cols-2">
             <AnimatedSection>
-              <div className="flex flex-col items-center rounded-2xl border border-green-100 bg-white p-8 text-center shadow-sm">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
-                  <MessageCircle size={26} />
+              <div className="rounded-2xl border border-green-100 bg-white p-8 shadow-sm">
+                <div className="flex flex-col items-center text-center">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-800">
+                    <Smartphone size={26} />
+                  </div>
+                  <h3 className="mt-5 text-xl font-bold text-green-950">
+                    Donate with M-Pesa
+                  </h3>
+                  <p className="mt-3 text-stone-600">
+                    Enter your details below and confirm the payment prompt
+                    sent to your phone.
+                  </p>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-green-950">
-                  Make a Donation
-                </h3>
-                <p className="mt-3 text-stone-600">
-                  Message us on WhatsApp and our team will share the current
-                  donation options and confirm your contribution.
+                <div className="mt-6">
+                  <MpesaDonateForm />
+                </div>
+                <p className="mt-4 text-center text-xs text-stone-500">
+                  Prefer WhatsApp?{" "}
+                  <a
+                    href={donateWhatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold text-green-700 underline underline-offset-2"
+                  >
+                    Message us instead
+                  </a>
+                  .
                 </p>
-                <a
-                  href={donateWhatsapp}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-primary mt-6 w-full rounded-full px-6 py-3 text-sm font-bold text-green-950 shadow-sm transition-transform hover:scale-[1.02]"
-                >
-                  Donate via WhatsApp
-                </a>
               </div>
             </AnimatedSection>
 
@@ -96,8 +106,7 @@ export default function GetInvolvedPage() {
               >
                 <Mail size={16} /> {site.email}
               </a>
-              . Online M-Pesa donations and a live fundraising goal tracker
-              are coming soon.
+              . A live fundraising goal tracker per project is coming soon.
             </p>
           </AnimatedSection>
         </Container>
