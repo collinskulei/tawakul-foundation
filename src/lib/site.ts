@@ -2,8 +2,8 @@ export const site = {
   name: "Tawakul Foundation",
   tagline: "Where Faith Meets Compassion",
   email: "foundationtawakul@gmail.com",
-  phone: "+254 743 562009",
-  whatsappNumber: "254743562009",
+  phone: "+254 705 198500",
+  whatsappNumber: "254705198500",
   location: "Busia, Western Kenya",
 };
 
