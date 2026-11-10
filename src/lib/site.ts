@@ -4,6 +4,7 @@ export const site = {
   email: "foundationtawakul@gmail.com",
   phone: "+254 705 198500",
   whatsappNumber: "254705198500",
+  tillNumber: "6723870",
   location: "Busia, Western Kenya",
 };
 

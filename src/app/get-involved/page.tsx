@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Mail, Smartphone, Users2 } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
-import { MpesaDonateForm } from "@/components/mpesa-donate-form";
+import { MpesaTillBanner } from "@/components/mpesa-till-banner";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { site, whatsappLink } from "@/lib/site";
@@ -46,12 +46,12 @@ export default function GetInvolvedPage() {
                     Donate with M-Pesa
                   </h3>
                   <p className="mt-3 text-stone-600">
-                    Enter your details below and confirm the payment prompt
-                    sent to your phone.
+                    Send your donation through Lipa na M-Pesa using our Buy
+                    Goods Till Number.
                   </p>
                 </div>
                 <div className="mt-6">
-                  <MpesaDonateForm />
+                  <MpesaTillBanner />
                 </div>
               </div>
             </AnimatedSection>

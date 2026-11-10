@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { AnimatedSection } from "@/components/animated-section";
 import { Container } from "@/components/container";
 import { PageHero } from "@/components/page-hero";
-import { MpesaDonateForm } from "@/components/mpesa-donate-form";
+import { MpesaTillBanner } from "@/components/mpesa-till-banner";
 import { createClient } from "@/lib/supabase/server";
 import type { ProjectProgress } from "@/lib/types";
 
@@ -96,7 +96,7 @@ export default async function ProjectDetailPage({
               Donate to this project
             </h2>
             <div className="mt-6">
-              <MpesaDonateForm projectId={project.project_id} />
+              <MpesaTillBanner projectTitle={project.title} />
             </div>
           </AnimatedSection>
         </Container>
